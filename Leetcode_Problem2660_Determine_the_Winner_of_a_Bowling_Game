@@ -1,0 +1,28 @@
+int isWinner(int* player1, int player1Size, int* player2, int player2Size){
+    int p1 = 0 , p2 = 0 , p1x = 0 , p2x = 0;
+    for(int i=0;i<player1Size;i++){
+        if(p1x)
+        {
+            p1x--;
+            p1 += (player1[i]*2);
+        }
+        else
+            p1 += player1[i];
+        if(p2x)
+        {
+            p2x--;
+            p2 += (player2[i]*2);
+        }
+        else
+            p2 += player2[i];
+
+        if(player1[i] == 10)
+            p1x = 2;
+        if(player2[i] == 10)
+            p2x = 2;
+    }
+
+    if(p1==p2)
+        return 0;
+    return p1 > p2? 1: 2;
+}
